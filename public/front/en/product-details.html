@@ -1,0 +1,1166 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Picksell one product</title>
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <!-- bootstrap icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+
+    <!-- font aweasome icons  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+
+    <!-- style for responsive pages -->
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+
+    <!-- jquery script -->
+    <script src="../assets/js/jquery.min.js"></script>
+
+    <!-- ==> for sliders only  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+        integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css"
+        integrity="sha512-OTcub78R3msOCtY3Tc6FzeDJ8N9qvQn1Ph49ou13xgA9VsH9+LRxoFU6EqLhW4+PKRfU+/HReXmSZXHEkpYoOA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- End style sliders -->
+
+
+</head>
+
+<body>
+    <!-- script for download all images -->
+    <script>
+        var upics = [
+            'http://127.0.0.1:5502/assets/img/products/80dd91e2-09cf-42f2-948d-ef243b99e57f.jpg',
+            'http://127.0.0.1:5502/assets/img/products/d525ee39-8d56-4807-a505-58a8c2f07984.jpg',
+            'http://127.0.0.1:5502/assets/img/products/CA2343%201.jpg',
+        ];
+
+        //
+        function download(item) {
+            var fileName = item.split(/(\\|\/)/g).pop();
+
+            var image = new Image();
+            image.crossOrigin = "anonymous";
+            image.src = item;
+            image.onload = function () {
+
+                // use canvas to load image
+                var canvas = document.createElement('canvas');
+                canvas.width = this.naturalWidth;
+                canvas.height = this.naturalHeight;
+                canvas.getContext('2d').drawImage(this, 0, 0);
+
+                // grab the blob url
+                var blob;
+                if (image.src.indexOf(".jpg") > -1) {
+                    blob = canvas.toDataURL("image/jpeg");
+                } else if (image.src.indexOf(".png") > -1) {
+                    blob = canvas.toDataURL("image/png");
+                } else if (image.src.indexOf(".gif") > -1) {
+                    blob = canvas.toDataURL("image/gif");
+                } else {
+                    blob = canvas.toDataURL("image/png");
+                }
+
+                // create link, set href to blob
+                var a = document.createElement('a');
+                a.title = fileName;
+                a.href = blob;
+                a.style.display = 'none';
+                a.setAttribute("download", fileName);
+                a.setAttribute("target", "_blank");
+                document.body.appendChild(a);
+
+                // click item
+                a.click();
+            }
+        }
+
+        function downloadAll(item) {
+            for (var i in upics) {
+                download(upics[i]);
+            }
+        }
+
+    </script>
+
+
+<!-- ===> [ Start navbar ] <================== -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light navbar_profile fixed-top">
+    <div class="container">
+
+
+        <div class="position-relative d-lg-none nav_box_notification">
+            <i class="fa-solid fa-bell fs-3 mt-2"></i>
+            <span class="position-absolute top-1  translate-middle badge rounded-pill bg-warning nav_badge_number">
+                5
+            </span>
+
+            <div class="container_drop_noti d-none">
+                <div class="card shadow">
+                    <div class="card-header bg-primary text-white">
+                        <h5>What's new on the site</h5>
+                    </div>
+                    <div class="card-body ">
+                        <a href="product-details.html" class="row my-3">
+                            <div class="col-2">
+                                <i class="fa-solid fa-bell"></i>
+                            </div>
+                            <div class="col-10">
+                                Lorem ipsum, dolor sit amet consectetur
+                                <span class="float-end text-black-50 small">10/225</span>
+                            </div>
+
+                        </a>
+
+                        <a href="product-details.html" class="row my-3">
+                            <div class="col-2">
+                                <i class="fa-solid fa-bell"></i>
+                            </div>
+                            <div class="col-10">
+                                Lorem ipsum, dolor sit amet consectetur
+                                <span class="float-end text-black-50 small">10/225</span>
+                            </div>
+
+                        </a>
+
+                        <a href="product-details.html" class="row my-3">
+                            <div class="col-2">
+                                <i class="fa-solid fa-bell"></i>
+                            </div>
+                            <div class="col-10">
+                                Lorem ipsum, dolor sit amet consectetur
+                                <span class="float-end text-black-50 small">10/225</span>
+                            </div>
+
+                        </a>
+
+                        <a href="product-details.html" class="row my-3">
+                            <div class="col-2">
+                                <i class="fa-solid fa-bell"></i>
+                            </div>
+                            <div class="col-10">
+                                Lorem ipsum, dolor sit amet consectetur
+                                <span class="float-end text-black-50 small">10/225</span>
+                            </div>
+
+                        </a>
+
+                        <a href="product-details.html" class="row my-3">
+                            <div class="col-2">
+                                <i class="fa-solid fa-bell"></i>
+                            </div>
+                            <div class="col-10">
+                                Lorem ipsum, dolor sit amet consectetur
+                                <span class="float-end text-black-50 small">10/225</span>
+                            </div>
+
+                        </a>
+
+                        <a href="product-details.html" class="row my-3">
+                            <div class="col-2">
+                                <i class="fa-solid fa-bell"></i>
+                            </div>
+                            <div class="col-10">
+                                Lorem ipsum, dolor sit amet consectetur
+                                <span class="float-end text-black-50 small">10/225</span>
+                            </div>
+
+                        </a>
+
+                        <a href="product-details.html" class="row my-3">
+                            <div class="col-2">
+                                <i class="fa-solid fa-bell"></i>
+                            </div>
+                            <div class="col-10">
+                                Lorem ipsum, dolor sit amet consectetur
+                                <span class="float-end text-black-50 small">10/225</span>
+                            </div>
+
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="position-relative d-lg-none">
+            <a href="heart.html">
+                <i class="fa-solid fa-heart fs-3 mt-2"></i>
+                <span class="position-absolute top-1  translate-middle badge rounded-pill bg-warning nav_badge_number">
+                    3
+                </span>
+            </a>
+        </div>
+
+        <div class="position-relative d-lg-none">
+            <a href="cart.html">
+                <i class="fa-solid fa-cart-shopping fs-3 mt-2"></i>
+                <span class="position-absolute top-1  translate-middle badge rounded-pill bg-warning nav_badge_number">
+                    3
+                </span>
+            </a>
+            
+        </div>
+
+        <a class="navbar-brand logo_home" href="#">
+            <img src="../assets/img/Logo1.png" alt="" class="d-inline-block align-text-top">
+        </a>
+
+        <form class="form_navbar_profile d-none d-lg-block">
+            <div class="d-flex box_search_nav">
+                <input class="me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="" type="submit"><i class="fa fa-search"></i></button>
+            </div>
+        </form>
+
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
+            aria-controls="offcanvasExample" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mb-2 mb-lg-0 row navbar_profile_ul" style="direction: ltr !important;">
+                <div class="col-1"></div>
+
+                <li class="nav-link position-relative  col-2">
+                    <a href="cart.html">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span class="position-absolute top-0  translate-middle badge rounded-pill bg-warning nav_badge_number">
+                            3
+                        </span>
+                    </a>
+                    
+                </li>
+
+                <li class="nav-link position-relative  col-2">
+                    <a href="heart.html">
+                        <i class="fa-solid fa-heart"></i>
+                        <span class="position-absolute top-0  translate-middle badge rounded-pill bg-warning nav_badge_number">
+                            3
+                        </span>
+                    </a>
+                </li>
+
+
+                <li class="nav-item col-5 navbar_drop_profile">
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-user"></i><span class="p-2 fs-5">Hamad shahat</span>
+                    </a>
+
+                    <div class="container_drop_profile d-none">
+                        <div class="card card-body  card_profile_items shadow">
+
+                            <a href="profile.html" class="mb-2 active">
+                                <h5> <img src="../assets/img/profile/account-desaturated.svg" alt="" width="35px"
+                                        height="45px"> <span class="p-3">Account</span></h5>
+                            </a>
+
+                            <a href="wallet.html" class="mb-2">
+                                <h5> <img src="../assets/img/profile/wallet-desaturated.svg" alt="" width="35px"
+                                        height="45px"><span class="p-3">Wallet</span></h5>
+                            </a>
+
+                            <a href="orders.html" class="mb-2">
+                                <h5> <img src="../assets/img/profile/orders-desaturated.svg" alt="" width="35px"
+                                        height="45px"><span class="p-3">Orders</span></h5>
+                            </a>
+
+                            <a href="#" class="mb-2">
+                                <h5> <img src="../assets/img/profile/logout-desaturated.svg" alt="" width="35px"
+                                        height="45px"><span class="p-3">Logout</span> </h5>
+                            </a>
+
+                        </div>
+                    </div>
+
+
+                </li>
+
+                <li class="nav-item col-1 nav_box_notification">
+
+                    <a class="nav-link position-relative ">
+                        <i class="fa-solid fa-bell fs-4"></i>
+                        <span class="position-absolute top-0  translate-middle badge rounded-pill bg-warning small nav_badge_number nav_badge_noti">
+                            5
+                        </span>
+                    </a>
+
+                    <div class="container_drop_noti d-none">
+                        <div class="card shadow">
+                            <div class="card-header bg-primary text-white">
+                                <h5>What's new on the site</h5>
+                            </div>
+                            <div class="card-body ">
+
+                               <a href="product-details.html" class="row my-3">
+                                    <div class="col-2">
+                                        <i class="fa-solid fa-bell"></i>
+                                    </div>
+                                    <div class="col-10">
+                                        Lorem ipsum, dolor sit amet consectetur
+                                        <span class="float-end text-black-50 small">10/225</span>
+                                    </div>
+
+                                </a>
+
+                                <a href="product-details.html" class="row my-3">
+                                    <div class="col-2">
+                                        <i class="fa-solid fa-bell"></i>
+                                    </div>
+                                    <div class="col-10">
+                                        Lorem ipsum, dolor sit amet consectetur
+                                        <span class="float-end text-black-50 small">10/225</span>
+                                    </div>
+
+                                </a>
+
+                                <a href="product-details.html" class="row my-3">
+                                    <div class="col-2">
+                                        <i class="fa-solid fa-bell"></i>
+                                    </div>
+                                    <div class="col-10">
+                                        Lorem ipsum, dolor sit amet consectetur
+                                        <span class="float-end text-black-50 small">10/225</span>
+                                    </div>
+
+                                </a>
+
+                                <a href="product-details.html" class="row my-3">
+                                    <div class="col-2">
+                                        <i class="fa-solid fa-bell"></i>
+                                    </div>
+                                    <div class="col-10">
+                                        Lorem ipsum, dolor sit amet consectetur
+                                        <span class="float-end text-black-50 small">10/225</span>
+                                    </div>
+
+                                </a>
+
+                                <a href="product-details.html" class="row my-3">
+                                    <div class="col-2">
+                                        <i class="fa-solid fa-bell"></i>
+                                    </div>
+                                    <div class="col-10">
+                                        Lorem ipsum, dolor sit amet consectetur
+                                        <span class="float-end text-black-50 small">10/225</span>
+                                    </div>
+
+                                </a>
+
+                                <a href="product-details.html" class="row my-3">
+                                    <div class="col-2">
+                                        <i class="fa-solid fa-bell"></i>
+                                    </div>
+                                    <div class="col-10">
+                                        Lorem ipsum, dolor sit amet consectetur
+                                        <span class="float-end text-black-50 small">10/225</span>
+                                    </div>
+
+                                </a>
+
+                                <a href="product-details.html" class="row my-3">
+                                    <div class="col-2">
+                                        <i class="fa-solid fa-bell"></i>
+                                    </div>
+                                    <div class="col-10">
+                                        Lorem ipsum, dolor sit amet consectetur
+                                        <span class="float-end text-black-50 small">10/225</span>
+                                    </div>
+
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+</nav>
+
+<!-- under nav on desctop only -->
+<div class="under_nav_disktop shadow-sm d-none d-lg-block">
+    <div class="d-flex p-0 m-0 ">
+        <div class=" m-0  item_one p-2">
+            <i class="bi bi-columns-gap px-2"></i> all categories <i class="fa-solid fa-chevron-down px-2"></i>
+            <div class="box_drob_doun_under mt-2 d-none">
+                <ul class="list-group">
+
+                    <li class="list-group-item item_has_over_1">
+                        <i class="fas fa-user px-2"></i>
+                        An item one
+
+                        <i class="fa-solid fa-angle-right float-end"></i>
+
+                        <div class="box_hover_main box_on_hover_1">
+                            <h5 class="h5">show all 1<i class="fa-solid fa-angle-right px-3"></i></h5>
+                            <hr>
+
+                            <div class="box_with_scroll">
+                                <div class="row">
+                                    <div class="col-6 mb-4">
+                                        <h3 class="h5 mb-2"><a href="#">category one</a></h3>
+                                        <ul class="list-unstyled">
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                        </ul>
+
+                                    </div>
+                                    <div class="col-6 mb-4">
+                                        <h3 class="h5 mb-2">category tow</h3>
+                                        <ul class="list-unstyled">
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                        </ul>
+
+                                    </div>
+
+                                    <div class="col-6 mb-4">
+                                        <h3 class="h5 mb-2">category three</h3>
+                                        <ul class="list-unstyled">
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                        </ul>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="list-group-item item_has_over_2">
+                        <i class="fas fa-user px-2"></i>
+                        An item tow
+                        <i class="fa-solid fa-angle-right float-end"></i>
+                        <div class="box_hover_main box_on_hover_2">
+                            <h5 class="h5">show all 2 <i class="fa-solid fa-angle-right px-3"></i></h5>
+                            <hr>
+
+                            <div class="box_with_scroll">
+                                <div class="row">
+                                    <div class="col-6 mb-4">
+                                        <h3 class="h5 mb-2">category one</h3>
+                                        <ul class="list-unstyled">
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                        </ul>
+
+                                    </div>
+                                    <div class="col-6 mb-4">
+                                        <h3 class="h5 mb-2">category tow</h3>
+                                        <ul class="list-unstyled">
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                        </ul>
+
+                                    </div>
+
+                                    <div class="col-6 mb-4">
+                                        <h3 class="h5 mb-2">category three</h3>
+                                        <ul class="list-unstyled">
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                        </ul>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="list-group-item item_has_over_3">
+                        <i class="fas fa-user px-2"></i>
+                        An item three
+                        <i class="fa-solid fa-angle-right float-end"></i>
+                        <div class="box_hover_main box_on_hover_3">
+                            <h5 class="h5">show all 3 <i class="fa-solid fa-angle-right px-3"></i></h5>
+                            <hr>
+
+                            <div class="box_with_scroll">
+                                <div class="row">
+                                    <div class="col-6 mb-4">
+                                        <h3 class="h5 mb-2">category one</h3>
+                                        <ul class="list-unstyled">
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                        </ul>
+
+                                    </div>
+                                    <div class="col-6 mb-4">
+                                        <h3 class="h5 mb-2">category tow</h3>
+                                        <ul class="list-unstyled">
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                        </ul>
+
+                                    </div>
+
+                                    <div class="col-6 mb-4">
+                                        <h3 class="h5 mb-2">category three</h3>
+                                        <ul class="list-unstyled">
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                        </ul>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="list-group-item item_has_over_4">
+                        <i class="fas fa-user px-2"></i>
+                        An item fore
+                        <i class="fa-solid fa-angle-right float-end"></i>
+                        <div class="box_hover_main box_on_hover_4">
+                            <h5 class="h5">show all 4 <i class="fa-solid fa-angle-right px-3"></i></h5>
+                            <hr>
+
+                            <div class="box_with_scroll">
+                                <div class="row">
+                                    <div class="col-6 mb-4">
+                                        <h3 class="h5 mb-2">category one</h3>
+                                        <ul class="list-unstyled">
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                        </ul>
+
+                                    </div>
+                                    <div class="col-6 mb-4">
+                                        <h3 class="h5 mb-2">category tow</h3>
+                                        <ul class="list-unstyled">
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                        </ul>
+
+                                    </div>
+
+                                    <div class="col-6 mb-4">
+                                        <h3 class="h5 mb-2">category three</h3>
+                                        <ul class="list-unstyled">
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                            <li class="pt-1"><a class="text-black-50">sub</a></li>
+                                        </ul>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+
+
+
+                </ul>
+            </div>
+
+        </div>
+
+        <a href="products.html" class="m-0 item_tow p-2">
+            <i class="fa-solid fa-cart-shopping px-2"></i> products
+        </a>
+
+        <a href="Complaints_suggestions.html" class=" m-0 item_three p-2">
+            <i class="fa-solid fa-file-lines px-2"></i> Complaints and suggestions
+        </a>
+
+        <a href="shipping_notes.html" class=" m-0 item_three p-2">
+            <i class="fa-solid fa-file-lines px-2"></i> shipping and notes
+        </a>
+        
+    </div>
+</div>
+
+<!-- under nav on mobile only -->
+<div class="under_nav_form d-lg-none shadow-sm">
+    <div class="container">
+        <form class="form_under_navbar">
+            <div class="d-flex box_search_nav">
+                <input class="me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="" type="submit"><i class="fa fa-search"></i></button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- start dropdown for mobile -->
+<div class="offcanvas offcanvas-start nav_for_mobil" tabindex="-1" id="offcanvasExample"
+    aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">
+
+            <div class="logo_home_mobile">
+                <img src="../assets/img/Logo1.png" alt="" width="30" height="24"
+                    class="d-inline-block align-text-top">
+            </div>
+
+        </h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body offcanvas_profile">
+        <a class="mb-2 active">
+            <h5> <img src="../assets/img/profile/account-desaturated.svg" alt="" width="35px" height="45px"> <span
+                    class="p-3">Account</span></h5>
+        </a>
+        <a class="mb-2">
+            <h5> <img src="../assets/img/profile/wallet-desaturated.svg" alt="" width="35px" height="45px"><span
+                    class="p-3">Wallet</span></h5>
+        </a>
+        <a class="mb-2">
+            <h5> <img src="../assets/img/profile/orders-desaturated.svg" alt="" width="35px" height="45px"><span
+                    class="p-3">Orders</span></h5>
+        </a>
+        <a class="mb-2">
+            <h5> <img src="../assets/img/profile/logout-desaturated.svg" alt="" width="35px" height="45px"><span
+                    class="p-3">Logout</span> </h5>
+        </a>
+
+    </div>
+</div>
+<!-- end dropdown for mobile -->
+
+<!-- ===> [ End navbar ] <================== -->
+    <section class="product_detailes_section">
+        <div class="container">
+
+            <div class="route_links">
+                <div class="d-flex">
+                    <a href="#">
+                        <p>Home page <span class="px-2">></span></p>
+                    </a>
+                    <a href="#">
+                        <p>Products <span class="px-2">></span></p>
+                    </a>
+                    <a href="#" class="active">
+                        <p>this product</p>
+                    </a>
+                </div>
+            </div>
+    
+
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="card card-body p-0 m-0">
+
+                        <!-- start slider one-->
+                        <section id="slider" class="products_slider product_detailes">
+                            <div class="container">
+                                <div id="carouselExampleIndicators" class="carousel slide p-3" data-bs-ride="carousel"
+                                    data-bs-interval="false">
+                                    <div class="carousel-indicators">
+
+                                        <button type="button" data-bs-target="#carouselExampleIndicators"
+                                            data-bs-slide-to="0" class="active" aria-current="true"
+                                            aria-label="Slide 1">
+                                        </button>
+
+                                        <button type="button" data-bs-target="#carouselExampleIndicators"
+                                            data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                        <button type="button" data-bs-target="#carouselExampleIndicators"
+                                            data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                        <button type="button" data-bs-target="#carouselExampleIndicators"
+                                            data-bs-slide-to="3" aria-label="Slide 4"></button>
+                                        <button type="button" data-bs-target="#carouselExampleIndicators"
+                                            data-bs-slide-to="4" aria-label="Slide 5"></button>
+                                        <button type="button" data-bs-target="#carouselExampleIndicators"
+                                            data-bs-slide-to="5" aria-label="Slide 6"></button>
+                                        <button type="button" data-bs-target="#carouselExampleIndicators"
+                                            data-bs-slide-to="6" aria-label="Slide 6"></button>
+                                    </div>
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active">
+                                            <img src="../assets/img/products/CA2343 1.jpg" class="d-block w-100"
+                                                alt="...">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="../assets/img/products/2b98a362-e141-468d-b91e-98d39eeb785a.jpg"
+                                                class="d-block w-100" alt="...">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="../assets/img/products/535f78e3-cd27-4ee3-9135-7dfe6e8a15af.jpg"
+                                                class="d-block w-100" alt="...">
+                                        </div>
+
+                                        <div class="carousel-item">
+                                            <img src="../assets/img/products/80dd91e2-09cf-42f2-948d-ef243b99e57f.jpg"
+                                                class="d-block w-100" alt="...">
+                                        </div>
+
+                                        <div class="carousel-item">
+                                            <img src="../assets/img/products/a79c6a1b-b5d2-498f-bb33-10924900fee4.jpg"
+                                                class="d-block w-100" alt="...">
+                                        </div>
+
+                                        <div class="carousel-item">
+                                            <img src="../assets/img/products/d525ee39-8d56-4807-a505-58a8c2f07984.jpg"
+                                                class="d-block w-100" alt="...">
+                                        </div>
+
+                                    </div>
+                                    <button class="carousel-control-prev" type="button"
+                                        data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button"
+                                        data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Next</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                        </section>
+                        <!-- end slider one-->
+                    </div>
+
+                    <div class="col-12 mt-3">
+                        <!-- start slider small -->
+                        <div class="box_slider mb-3">
+                            <i class="customPrevBtn0 btn_slider_next fa-solid fa-angle-left fs-2 rounded-pill"></i>
+                            <i
+                                class="customNextBtn0 btn_slider_previos fa-solid fa-chevron-right fs-2 rounded-pill"></i>
+
+                            <div class="owl-carousel owl-theme owl_details_small" dir="ltr">
+
+                                <div class="item">
+                                    <div class="card card-body active" data-bs-target="#carouselExampleIndicators"
+                                        data-bs-slide-to="0" aria-current="true" aria-label="Slide 1">
+
+                                        <img width="100%" height="110px" src="../assets/img/products/CA2343 1.jpg"
+                                            alt="" class="product_img_hover">
+                                    </div>
+                                </div>
+
+                                <div class="item">
+                                    <div class="card card-body" data-bs-target="#carouselExampleIndicators"
+                                        data-bs-slide-to="1" aria-current="true" aria-label="Slide 2">
+                                        <img width="100%" height="110px"
+                                            src="../assets/img/products/2b98a362-e141-468d-b91e-98d39eeb785a.jpg" alt=""
+                                            class="product_img_hover">
+                                    </div>
+                                </div>
+
+                                <div class="item">
+                                    <div class="card card-body" data-bs-target="#carouselExampleIndicators"
+                                        data-bs-slide-to="2" aria-current="true" aria-label="Slide 3">
+                                        <img width="100%" height="110px"
+                                            src="../assets/img/products/535f78e3-cd27-4ee3-9135-7dfe6e8a15af.jpg" alt=""
+                                            class="product_img_hover">
+                                    </div>
+                                </div>
+
+                                <div class="item">
+                                    <div class="card card-body" data-bs-target="#carouselExampleIndicators"
+                                        data-bs-slide-to="3" aria-current="true" aria-label="Slide 4">
+                                        <img width="100%" height="110px"
+                                            src="../assets/img/products/80dd91e2-09cf-42f2-948d-ef243b99e57f.jpg" alt=""
+                                            class="product_img_hover">
+                                    </div>
+                                </div>
+
+                                <div class="item">
+                                    <div class="card card-body" data-bs-target="#carouselExampleIndicators"
+                                        data-bs-slide-to="4" aria-current="true" aria-label="Slide 5">
+                                        <img width="100%" height="110px"
+                                            src="../assets/img/products/a79c6a1b-b5d2-498f-bb33-10924900fee4.jpg" alt=""
+                                            class="product_img_hover">
+                                    </div>
+                                </div>
+
+                                <div class="item">
+                                    <div class="card card-body" data-bs-target="#carouselExampleIndicators"
+                                        data-bs-slide-to="5" aria-current="true" aria-label="Slide 6">
+                                        <img width="100%" height="110px"
+                                            src="../assets/img/products/d525ee39-8d56-4807-a505-58a8c2f07984.jpg" alt=""
+                                            class="product_img_hover">
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- End slider small -->
+
+                        <button class="yourlink btn btn_main_color rounded-pill col-12 mb-4 mt-3 p-2" onclick="downloadAll()"> <i class="fa fa-download px-2"></i> Download
+                            all photos to your
+                            device</button>
+
+                    </div>
+
+
+
+                </div>
+                <div class="col-lg-7">
+                    <h2 class="h3 mb-3">
+                        product name
+                    </h2>
+                    <p><span class="text-black-50 px-2">product code : </span> 4254366211</p>
+                    <p><span class="text-black-50 px-2">price : </span> 300 Eg</p>
+                    <p><span class="text-black-50 px-2">profit : </span> 40 Eg</p>
+
+                    <hr class="mb-4 mt-4">
+                    <p><span class="text-black-50 px-2">Status : </span> <span class="text-success">Available</span></p>
+
+                    <div class="details_btn">
+                        <div class="row">
+                            <div class="col-3">
+
+                                <div class="box_details_count">
+
+                                    <i class="bi bi-plus"></i>
+                                    <input type="number" name="" id="" value="1">
+                                    <i class="bi bi-dash"></i>
+
+                                </div>
+
+                            </div>
+                            <div class="col-5">
+                                <button class="btn btn_main_color rounded-pill col-12">Add to cart</button>
+                            </div>
+                            <div class="col-4">
+                                <button class="btn btn_second_color rounded-pill col-12">Order now</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="mt-4">
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <i class="fa fa-heart p-2"></i>
+                                Add to catalog
+                            </div>
+                            <div class="col-md-8 box_shar_btn_details">
+                                Share via:
+                                <button class="btn"><i class="bi bi-facebook"></i> facebook</button>
+                                <button class="btn"> <i class="bi bi-whatsapp"></i> whatsapp</button>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="card card-body box_tabs mt-5">
+                <nav class="mb-4">
+                    <div class="nav nav-tabs row" id="nav-tab" role="tablist">
+                        <button class="nav-link active col-3" id="nav-home-tab" data-bs-toggle="tab"
+                            data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home"
+                            aria-selected="true">
+                            Product Description
+                        </button>
+                        <button class="nav-link col-3" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile"
+                            type="button" role="tab" aria-controls="nav-profile" aria-selected="false">
+                            Product details
+                        </button>
+                        <button class="nav-link col-3" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact"
+                            type="button" role="tab" aria-controls="nav-contact" aria-selected="false">
+                            How to use
+                        </button>
+                        <button class="nav-link col-3" id="nav-video-tab" data-bs-toggle="tab" data-bs-target="#nav-video"
+                            type="button" role="tab" aria-controls="nav-video" aria-selected="false">
+                            Product Videos
+                        </button>
+                    </div>
+
+                </nav>
+
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias quae voluptatibus aperiam
+                            doloribus culpa, expedita vitae amet id ab dolores. Veniam atque deleniti amet ullam, quae
+                            vitae ipsa beatae fugit?</p>
+                    </div>
+                    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias quae voluptatibus aperiam
+                            doloribus culpa, expedita vitae amet id ab dolores. Veniam atque deleniti amet ullam, quae
+                            vitae ipsa beatae fugit?</p>
+                    </div>
+                    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias quae voluptatibus aperiam
+                            doloribus culpa, expedita vitae amet id ab dolores. Veniam atque deleniti amet ullam, quae
+                            vitae ipsa beatae fugit?</p>
+                    </div>
+
+                    <div class="tab-pane fade" id="nav-video" role="tabpanel" aria-labelledby="nav-video-tab">
+                        <div class="p-md-4">
+                            <div class="ratio ratio-16x9">
+                                <iframe src="https://www.youtube.com/embed/qbTkgvY9uK4" title="YouTube video"
+                                    allowfullscreen></iframe>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- start best seller [ by hamada ] -->
+    <section id="best_seller" class="best_seller mt-4">
+        <div class="container container_with_lang">
+            <h1 class="h2">Best Seller <a href="#" class="float-end text-info fs-3 pt-2">view all</a>
+            </h1>
+
+
+
+            <div class="mt-4 mb-5 box_slider p-md-3">
+                <i class="customPrevBtn0 btn_slider_next fa-solid fa-angle-left fs-2 rounded-pill"></i>
+                <i class="customNextBtn0 btn_slider_previos fa-solid fa-chevron-right fs-2 rounded-pill"></i>
+
+                <div class="owl-carousel owl-theme owl-best_seller" dir="ltr">
+
+                    <div class="item">
+                        <div class="card card-body mb-4 card_cart">
+                            <img src="../assets/img/seller.jpg" alt="" class="img-flid mb-3 product_img_hover">
+                            <div class="text-black-50">category name</div>
+                            <h2 class="h4 mt-1">product name h</h2>
+                            <div class="row mt-2">
+                                <div class="col-6 col-md-12">
+                                    <p class="lead fs-6">
+                                        <strong>price : 400 Eg</strong>
+                                    </p>
+                                </div>
+                                <div class="col-6 col-md-12">
+                                    <p class="lead fs-6">
+                                        <strong>Earn : 10 Eg</strong>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-9 pt-1">
+                                    <button class="btn rounded-pill col-12">add to cart <i
+                                            class="bi bi-cart-plus"></i></button>
+                                </div>
+                                <div class="col-3 text-center">
+                                    <i class="bi bi-heart btn icon_heart product_icon_heart fs-3"></i>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="card card-body mb-4 card_cart">
+                            <img src="../assets/img/seller.jpg" alt="" class="img-flid mb-3 product_img_hover">
+                            <div class="text-black-50">category name</div>
+                            <h2 class="h4 mt-1">product name h</h2>
+                            <div class="row mt-2">
+                                <div class="col-6 col-md-12">
+                                    <p class="lead fs-6">
+                                        <strong>price : 400 Eg</strong>
+                                    </p>
+                                </div>
+                                <div class="col-6 col-md-12">
+                                    <p class="lead fs-6">
+                                        <strong>Earn : 10 Eg</strong>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-9 pt-1">
+                                    <button class="btn rounded-pill col-12">add to cart <i
+                                            class="bi bi-cart-plus"></i></button>
+                                </div>
+                                <div class="col-3 text-center">
+                                    <i class="bi bi-heart btn icon_heart product_icon_heart fs-3"></i>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="card card-body mb-4 card_cart">
+                            <img src="../assets/img/seller.jpg" alt="" class="img-flid mb-3 product_img_hover">
+                            <div class="text-black-50">category name</div>
+                            <h2 class="h4 mt-1">product name h</h2>
+                            <div class="row mt-2">
+                                <div class="col-6 col-md-12">
+                                    <p class="lead fs-6">
+                                        <strong>price : 400 Eg</strong>
+                                    </p>
+                                </div>
+                                <div class="col-6 col-md-12">
+                                    <p class="lead fs-6">
+                                        <strong>Earn : 10 Eg</strong>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-9 pt-1">
+                                    <button class="btn rounded-pill col-12">add to cart <i
+                                            class="bi bi-cart-plus"></i></button>
+                                </div>
+                                <div class="col-3 text-center">
+                                    <i class="bi bi-heart btn icon_heart product_icon_heart fs-3"></i>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- end best seller [ by hamada ] -->
+
+
+    <!-- start footer -->
+    <div class="page_wave"></div>
+    <section class="footer" id="footer">
+        <div class="container container_with_lang">
+            <div class="row">
+                <div class="col-md-7 mb-5">
+                    <h6 class="main_title text-white mb-5">Picksell.com</h6>
+                    <p class="lead">A picksell supports everyone who thinks to build his e-commerce with many
+                        services. First, a platform that allows merchants to manage and follow up on orders, propose
+                        and provide a wide range of products, shipping services for products, delivery to the final
+                        customer and collection from them, instant transfer of sales value to merchants, in addition
+                        to marketing advice that helps merchants sell their products through the Internet and
+                        suggest products that suit them and suit their target customers.</p>
+                </div>
+                <div class="col-md-5 text-center">
+                    <h4 class="text-white">Follow us on social media</h4>
+                    <div class="box_social text-center">
+                        <div class="d-flex justify-content-center">
+                            <div><i class="bi bi-facebook"></i></div>
+                            <div><i class="bi bi-whatsapp"></i></div>
+                            <div><i class="bi bi-linkedin"></i></div>
+                            <div><i class="bi bi-twitter"></i></div>
+                            <div><i class="bi bi-youtube"></i></div>
+                        </div>
+                    </div>
+                    <h5 class="mt-5">Contact us through e-mail:</h5>
+                    <p class="lead">
+                        <strong class="pr-3"> E-mail </strong>
+                        <a href="#" class="text-info">
+                            example@picksell.com
+                        </a>
+                    </p>
+                </div>
+            </div>
+            <div class="mt-5 text-center">
+                <p class="lead">
+                    all rights are save 2022 picksell.com
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- End footer -->
+
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="../assets/js/bootstrap.bundle.min.js"></script>
+
+
+    <!-- scripts for sliders only -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+        integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/product_details.js"></script>
+
+
+
+</body>
+
+</html>

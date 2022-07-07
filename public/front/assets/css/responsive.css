@@ -1,0 +1,258 @@
+@media (max-width: 991px) {
+  
+    .container_list_of_orders .box_order_detailes .order_header{
+        font-size: 14px;
+    } 
+
+    .modal-fullscreen,.modal-fullscreen-rate{
+      width: 100% !important;
+      padding: 2%;
+      border-radius: 5px;
+      height: calc(100vh - 4%);
+    }
+
+    
+    .modal-fullscreen-rate{
+      width: 100% !important;
+      padding: 2px;
+      border-radius: 5px;
+      height: auto;
+
+    }
+
+    /* for desctop */
+    .container_drop_noti {
+      background-color: transparent;
+      width: 400px;
+      height: 300px;
+      position: absolute;
+      top: 50px;
+      left: 0px;
+      border-radius: 8px;
+      text-align: left;
+      z-index: 100;
+
+    }
+
+    .container_drop_noti .card-body{
+      overflow-x: hidden;
+      overflow-y: scroll;
+      height: 300px;
+    }
+
+    .nav_box_notification .nav-link .active{
+      color: var(--main-color);
+    }
+
+    .nav_box_notification .nav-link{
+      font-size: 14px !important;
+      top: 10px !important;
+    }
+
+    .nav_box_notification span{
+      font-size: 14px !important;
+    }
+
+    .container_drop_noti .card-body{
+      font-size: 16px !important;
+    }
+
+    .container_drop_noti .card-body i{
+      padding: 12px;
+      font-size: 24px;
+      color: var(--main-color);
+      border-radius: 10px;
+      background-color: var(--main-color-alt);
+    }
+
+    .navbar_profile{
+      border: none !important;
+    }
+    
+    .profile_setting{
+      margin-top: 0px;
+    }
+
+    .products_slider ,.all_products_page{
+      margin-top: 0px;
+  }
+  
+
+  }
+
+/* Small */
+@media (min-width: 992px) {
+
+  .modal-fullscreen{
+    width: 70% !important;
+    padding: 2%;
+    border-radius: 5px;
+    height: calc(100vh - 2%);
+  }
+ 
+  .modal-fullscreen-rate{
+    width: 60% !important;
+    padding: 2%;
+    border-radius: 5px;
+    height: auto;
+  }
+
+  .recovery_full{
+    width: 50% !important;
+    padding: 2%;
+    border-radius: 5px;
+    height: calc(100vh - 2%);
+  }
+  
+}
+
+/* Medium */
+@media (max-width: 992px) {
+  
+  .navbar_profile .logo_home{
+    margin-right: 0px !important;
+  }
+
+  
+  /* ==> start cart section <============================ */
+
+  .cart_section table img{
+    width: 50px;
+    height: 50px;
+    margin-top: 10px;
+  }
+
+  .box_for_cart_count{
+    width: 100px;
+  }
+
+  .cart_section .card_order_details{
+    border-radius: 20px;
+  }
+
+  .cart_section .card_order_details .card-header{
+    border-radius: 20px 20px 0px 0px;
+    text-align: center;
+    background-color: var(--main-color);
+    color: #fff;
+    padding: 20px;
+  }
+
+  .cart_section .card_order_details .card-header h4{
+    margin-top: 10px;
+  }
+
+  .opacity_5{
+    opacity: 0.5;
+  }
+
+  .cart_section .fa-close:hover{
+    color: tomato !important;
+  }
+
+  .cart_section table .price_error_msg{
+    font-size: 10px;
+  }
+
+  /* ==> End cart section <============================ */
+
+
+
+
+
+}
+
+
+@media (max-width: 1200px) {
+  .navbar_profile .logo_home img{
+    width: 120px;
+    height: 40px;
+  }
+
+  .navbar_profile .nav-link i{
+    font-size:20px !important;
+  }
+
+  .form_navbar_profile{
+    width: 22% !important;
+    display: none;
+  } 
+
+  .box_search_nav{
+    border: 1px solid #CFF0EE;
+    border-radius: 50px;
+    padding: 5px 15px;
+    width: 100% !important;
+  }
+
+  .box_search_nav input{
+      background-color: transparent;
+      border: none;
+      outline: none;
+      width: 90%;
+      padding: 2px;
+  }
+
+  .box_search_nav button{
+      background-color: transparent;
+      border: none;
+      border-radius: 0px 50px 50px 0px;
+      color: var(--secondary-color);
+      width: 10%;
+  }
+
+
+    
+
+
+
+}
+
+
+/* Large */
+@media (min-width: 1200px) {
+
+    .navbar_profile .logo_home img{
+      width: 160px;
+      height: 50px;
+    }
+
+    .navbar_profile .nav-link i{
+      font-size:24px !important;
+    }
+
+
+
+    .form_navbar_profile{
+      width: 28% !important;
+    } 
+
+    .box_search_nav{
+      border: 1px solid #CFF0EE;
+      border-radius: 50px;
+      padding: 10px;
+      width: 100% !important;
+  }
+  
+  .box_search_nav input{
+      background-color: transparent;
+      border: none;
+      outline: none;
+      width: 90%;
+  }
+  
+  .box_search_nav button{
+      background-color: transparent;
+      border: none;
+      border-radius: 0px 50px 50px 0px;
+      color: var(--secondary-color);
+      width: 10%;
+  }
+  
+
+  .nav_badge_noti{
+    left: 30px !important;
+    top: 5px !important;
+ }
+
+}
